@@ -1,4 +1,5 @@
 lines = open('input.txt').read().splitlines()
+lines.sort()
 
 for line in lines:
   for cmpLine in lines:
