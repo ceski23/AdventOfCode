@@ -4,16 +4,14 @@ from .utils.IntcodeComputer import IntcodeComputer
 
 async def main():
   with open('inputs/11.txt') as f:
-    memory = [0 for _ in range(64 * 1024)]
     code = list(map(int, f.readline().split(',')))
-    memory[:len(code)] = code
 
     pos, direction = (0, 0), 0
     hull = {}
-    robot = IntcodeComputer(memory.copy())
+    robot = IntcodeComputer(code.copy())
     task = create_task(robot.start([]))
 
-    while (0 <= robot.pointer < len(memory)):
+    while (0 <= robot.pointer < len(robot.memory)):
       await robot.inp.put(hull.get(pos, 0))
       
       hull[pos] = await robot.output.get()
