@@ -4,6 +4,7 @@ from days import day_3_1, day_3_2
 from days import day_4_1, day_4_2
 from days import day_5_1, day_5_2
 from days import day_6_1, day_6_2
+from days import day_7_1, day_7_2
 
 
 def test_1_1():
@@ -52,3 +53,11 @@ def test_6_1():
 
 def test_6_2():
     assert day_6_2.run() == 3232
+
+
+def test_7_1():
+    assert day_7_1.run() == 268
+
+
+def test_7_2():
+    assert day_7_2.run() == 7867
