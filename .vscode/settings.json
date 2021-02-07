@@ -1,7 +1,4 @@
 {
-  "python.testing.pytestArgs": [
-    "."
-  ],
   "python.testing.unittestEnabled": false,
   "python.testing.nosetestsEnabled": false,
   "python.testing.pytestEnabled": true,
@@ -86,5 +83,9 @@
     "**/.pytype/": true,
     "**/.prof": true,
     ".pytest_cache/**/*": true
-  }
+  },
+  "editor.tabSize": 4,
+  "python.testing.pytestArgs": [
+    "days"
+  ]
 }
