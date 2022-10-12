@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "aoc_2021"
+version = "0.1.0"
+description = ""
+authors = ["Cezary Bober <ceski23@gmail.com>"]
+
+[tool.poetry.dependencies]
+python = "3.10"
+numpy = "^1.21.4"
+
+[tool.poetry.dev-dependencies]
+pytest = "^6.2.5"
+autopep8 = "^1.6.0"
+
+[build-system]
+requires = ["poetry-core>=1.0.0"]
+build-backend = "poetry.core.masonry.api"
