@@ -2,9 +2,7 @@ import * as R from "ramda";
 import esMain from "es-main";
 import { readFile } from "fs/promises";
 import { match } from "ts-pattern";
-
-export const nonNullable = <T>(value: T): value is NonNullable<T> =>
-  value !== undefined && value !== null;
+import { nonNullable } from "utils";
 
 export const parseInput = async (path: string) => {
   const data = await readFile(new URL(path, import.meta.url), "utf-8");
