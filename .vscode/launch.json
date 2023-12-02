@@ -6,7 +6,7 @@
       "name": "Run file",
       "request": "launch",
       "program": "${file}",
-      "runtimeArgs": ["--loader", "tsx", "--no-warnings"],
+      "runtimeArgs": ["--loader", "tsx", "--require", "tsx/suppress-warnings"],
       "skipFiles": ["<node_internals>/**"],
       "outFiles": ["${workspaceFolder}/**/*.js"],
       "internalConsoleOptions": "openOnSessionStart"
