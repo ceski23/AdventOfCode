@@ -1,0 +1,46 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "dune",
+			"problemMatcher": "$ocamlc",
+			"group": "build",
+			"label": "Build",
+		},
+		{
+			"label": "Run current file",
+			"type": "shell",
+			"command": "dune",
+			"args": ["exec", "--", "${fileDirnameBasename}"],
+			"problemMatcher": "$ocamlc",
+		},
+		{
+			"label": "Watch",
+			"type": "shell",
+			"command": "dune",
+			"args": ["build", "--watch"],
+			"problemMatcher": [
+				"$ocamlc",
+				// {
+				// 	"owner": "ocaml",
+				// 	"fileLocation": "relative",
+				// 	"pattern": {
+				// 		"regexp": ".",
+				// 		"file": 1,
+				// 		"line": 2,
+				// 	},
+				// 	"background": {
+				// 		"activeOnStart": false,
+				// 		"beginsPattern": "^Done: \\d{1,3}% (\\d+/\\d+, \\d+ left)",
+				// 		"endsPattern": "Success, waiting for filesystem changes..."
+				// 	}
+				// }
+			],
+			// "isBackground": true,
+			"presentation": {
+				"echo": true,
+				"reveal": "silent",
+			}
+		}
+	]
+}
