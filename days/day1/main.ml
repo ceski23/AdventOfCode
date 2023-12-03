@@ -69,17 +69,23 @@ let parse_line_with_words line =
 ;;
 
 let () =
-  In_channel.with_file
-    "days/day1/input.txt"
-    ~f:(In_channel.fold_lines ~init:0 ~f:(fun acc number -> acc + parse_line number))
-  |> printf "PART1: %d\n"
+  let result =
+    In_channel.with_file
+      "days/day1/input.txt"
+      ~f:(In_channel.fold_lines ~init:0 ~f:(fun acc number -> acc + parse_line number))
+  in
+  printf "PART1: %d\n" result;
+  assert (result = 53386)
 ;;
 
 let () =
-  In_channel.with_file
-    "days/day1/input.txt"
-    ~f:
-      (In_channel.fold_lines ~init:0 ~f:(fun acc number ->
-         acc + parse_line_with_words number))
-  |> printf "PART2: %d\n"
+  let result =
+    In_channel.with_file
+      "days/day1/input.txt"
+      ~f:
+        (In_channel.fold_lines ~init:0 ~f:(fun acc number ->
+           acc + parse_line_with_words number))
+  in
+  printf "PART2: %d\n" result;
+  assert (result = 53312)
 ;;
