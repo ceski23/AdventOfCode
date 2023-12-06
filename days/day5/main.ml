@@ -35,12 +35,6 @@ let rec add_range_to_tree (item : range) (tree : range tree) =
     else t
 ;;
 
-let parse_seeds line =
-  line
-  |> Re2.get_matches_exn (Re2.create_exn "\\d+")
-  |> List.map ~f:(fun m -> Re2.Match.get_exn m ~sub:(`Index 0) |> Int.of_string)
-;;
-
 let parse_map_section (section : string) =
   List.drop (section |> String.split_lines) 1
   |> List.fold ~init:Leaf ~f:(fun acc x ->
