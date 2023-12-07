@@ -1,0 +1,5 @@
+(executable
+ (public_name day7)
+ (name main)
+ (modes byte exe)
+ (libraries core re2))
