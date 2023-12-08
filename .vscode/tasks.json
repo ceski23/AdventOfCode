@@ -8,6 +8,13 @@
 			"label": "Build",
 		},
 		{
+			"label": "Install dependencies",
+			"type": "shell",
+			"command": "opam",
+			"args": ["install", ".", "--deps-only", "--working-dir"],
+			"problemMatcher": []
+		},
+		{
 			"label": "Run current file",
 			"type": "shell",
 			"command": "dune",
