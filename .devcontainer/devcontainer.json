@@ -9,5 +9,5 @@
 			]
 		}
 	},
-	"postCreateCommand": "rustup component add clippy"
+	"onCreateCommand": "rustup show active-toolchain"
 }
