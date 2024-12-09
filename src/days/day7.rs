@@ -42,10 +42,10 @@ fn calc_total_calibration_result(equations: Vec<Equation>, operators: &[&str]) -
                 let calculated_result =
                     numbers
                         .iter()
-                        .map(|x| *x)
+                        .copied()
                         .reduce(|current_result, next_number| {
                             apply_operator(
-                                **operators_iter.next().unwrap_or(&&"+"),
+                                operators_iter.next().unwrap_or(&&"+"),
                                 current_result,
                                 next_number,
                             )
