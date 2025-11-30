@@ -1,0 +1,11 @@
+[package]
+name = "advent_of_code_2025"
+version = "0.1.0"
+authors = ["Cezary Bober <ceski23@gmail.com>"]
+edition = "2021"
+
+[dependencies]
+anyhow = "1.0.93"
+itertools = "0.13.0"
+ndarray = "0.16.1"
+regex = "1.11.1"
