@@ -49,16 +49,19 @@ fn count_when_passes_zero(moves: Vec<Move>, start_position: i32) -> i32 {
                 Move::Right(steps) => position + steps,
             };
             let next_position = non_normalized_position.rem_euclid(100);
-            let zero_count = non_normalized_position.div_euclid(100);
-            let final_zero_count = if position == 0 && zero_count < 0 {
-                zero_count.abs() - 1
-            } else if next_position == 0 && zero_count <= 0 {
-                zero_count.abs() + 1
-            } else {
-                zero_count.abs()
+            // How many full 100-steps were taken (negative means moving left past 0)
+            let wraps = non_normalized_position.div_euclid(100);
+            // Adjust wrap count to count passes through 0 correctly
+            let zero_count = match (position == 0, next_position == 0, wraps) {
+                // Starting at 0 and moving left past it: don't count the starting point
+                (true, _, wraps) if wraps < 0 => wraps.abs() - 1,
+                // Landing exactly on 0 while moving left or not moving forward: include the landing
+                (_, true, wraps) if wraps <= 0 => wraps.abs() + 1,
+                // Otherwise just the absolute number of wraps
+                _ => wraps.abs(),
             };
 
-            (next_position, count + final_zero_count)
+            (next_position, count + zero_count)
         });
 
     count
