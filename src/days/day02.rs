@@ -30,6 +30,18 @@ fn find_duplicated(numbers: Vec<u64>) -> Result<u64> {
     Ok(sum)
 }
 
+fn find_duplicated_faster(numbers: Vec<u64>) -> u64 {
+    numbers
+        .into_par_iter()
+        .filter(|number| {
+            let string = number.to_string();
+            let (head, tail) = string.split_at(string.len() / 2);
+
+            head.len() == tail.len() && head == tail
+        })
+        .sum()
+}
+
 fn find_at_least_duplicated(numbers: Vec<u64>) -> Result<u64> {
     let duplicate_or_more_pattern = Regex::new(r"^(\d+)\1+$")?;
     let sum = numbers
@@ -63,6 +75,7 @@ mod tests {
         let input = fs::read_to_string("inputs/day02.txt")?;
         let data = parse_input(input)?;
         assert_eq!(find_duplicated(data)?, 13108371860);
+        // assert_eq!(find_duplicated_faster(data), 13108371860);
 
         Ok(())
     }
